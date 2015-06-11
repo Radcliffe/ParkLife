@@ -62,3 +62,4 @@ target/
 
 # Secret files
 secrets.*
+app.yaml
