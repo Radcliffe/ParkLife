@@ -7,11 +7,6 @@ from models import Event
 from google.appengine.ext import ndb
 import twilio.twiml
 
-@app.route('/')
-def hello():
-    """Return a friendly HTTP greeting."""
-    return 'Hello World!'
-
 @app.route('/message', methods=['GET', 'POST'])
 def reply():
     query = Event.query(Event.date == today())
@@ -25,11 +20,3 @@ def reply():
         else:
             response.message(' | '.join(messages))
     return str(response)
-        
-    
-        
-    
-@app.errorhandler(404)
-def page_not_found(e):
-    """Return a custom 404 error."""
-    return 'Sorry, nothing at this URL.', 404
